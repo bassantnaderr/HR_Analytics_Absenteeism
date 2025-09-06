@@ -39,14 +39,14 @@ WHERE social_drinker = "0"
         FROM absenteeism_at_work
       );
   ```
-**3.Compensation Calculation (Non-Smokers)**
+**3. Compensation Calculation (Non-Smokers)**
 ```sql
 SELECT COUNT(*) AS non_smokers
 FROM absenteeism_at_work
 WHERE social_smoker = "0";
 ```
 
-**4.Optimized Query**
+**4. Optimized Query**
 ```sql
 SELECT 
     a.ID,
@@ -87,12 +87,13 @@ LEFT JOIN reasons AS r
 
 ### Compensation Calculation
 
-Budget = 983,221
-Total working hours in a year = 2080
-Number of non-smokers = 686
-Total working hours of all non-smokers = 686 × 2080 = 1,486,880
-Hourly increase = 983,221 ÷ 1,486,880 = 0.68
-Annual increase per non-smoker = 2080 × 0.68 = 1,414.4.
+- Budget = `983,221`
+- Total working hours in a year = `2080`
+- Number of non-smokers = `686`
+- Total working hours of all non-smokers = `1,486,880`
+- Hourly increase = `0.68`
+- Annual increase per non-smoker = `1,414.4`
+
 
 ### Mockup Preview
 ![Mockup Preview](dashboard_mockup.png)
