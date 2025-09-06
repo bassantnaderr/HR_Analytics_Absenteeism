@@ -96,11 +96,11 @@ LEFT JOIN reasons AS r
 
 
 ### Mockup Preview
-![Mockup Preview](dashboard_mockup.png)
+![Mockup Preview](dashboard_mockup.PNG)
 
 ### Dashboard Preview
 
-![Dashboard Preview](final_dashboard.png)
+![Dashboard Preview](final_dashboard.PNG)
 
 
 ### Dashboard Insights  
