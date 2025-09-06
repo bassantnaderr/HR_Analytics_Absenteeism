@@ -17,6 +17,7 @@ This project was developed as part of an HR request to the Data Analytics team t
 
 ### SQL Queries  
 
+
 **1. Create Join Table**  
 ```sql
 SELECT * 
@@ -25,8 +26,8 @@ LEFT JOIN compensation AS c
     ON a.id = c.id
 LEFT JOIN reasons AS r
     ON a.reason_for_absence = r.Number;
-
-**2. Find the Healthiest Employees for Bonus**  
+```
+**2. Find the Healthiest Employees for Bonus**
 SELECT *
 FROM absenteeism_at_work
 WHERE social_drinker = "0" 
@@ -36,6 +37,7 @@ WHERE social_drinker = "0"
         SELECT AVG(absenteeism_time_in_hours) 
         FROM absenteeism_at_work
       );
+      ```
 **3.Compensation Calculation (Non-Smokers)**
 SELECT COUNT(*) AS non_smokers
 FROM absenteeism_at_work
@@ -92,7 +94,7 @@ Annual increase per non-smoker = 2080 × 0.68 = 1,414.4.
 
 capture.png
 
-## Dashboard Insights  
+### Dashboard Insights  
 - Total employees analyzed: **737**  
 - Total lost hours: **5,124**  
 - Average absenteeism per employee: **6.95 hours**  
@@ -100,6 +102,6 @@ capture.png
 - Lifestyle and demographic factors (education, pets, smoking, drinking) strongly influence absenteeism patterns  
 - Insights support HR in workforce planning, wellness initiatives, and absenteeism reduction strategies  
 
-## Deliverables  
+### Deliverables  
 - **SQL Queries** – Data preparation and business logic  
 - **Power BI Dashboard** – Visualization of absenteeism insights  
