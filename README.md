@@ -12,7 +12,85 @@ This project was developed as part of an HR request to the Data Analytics team t
 - **Joins:** Combined absenteeism, compensation, and reasons tables into a unified dataset.  
 - **Healthy Employee Filter:** Queried employees meeting health and absenteeism criteria for the bonus program.  
 - **Compensation Calculation:** Allocated budget across non-smokers, resulting in an estimated **0.68 hourly increase** or **1,414 annual increase**.  
-- **Data Transformation:** Added derived fields such as **BMI category** and **season of absence** for better analysis.  
+- **Data Transformation:** Added derived fields such as **BMI category** and **season of absence** for better analysis.
+  
+
+### SQL Queries  
+
+**1. Create Join Table**  
+```sql
+SELECT * 
+FROM absenteeism_at_work AS a
+LEFT JOIN compensation AS c
+    ON a.id = c.id
+LEFT JOIN reasons AS r
+    ON a.reason_for_absence = r.Number;
+
+**2. Find the Healthiest Employees for Bonus**  
+SELECT *
+FROM absenteeism_at_work
+WHERE social_drinker = "0" 
+  AND social_smoker = "0"
+  AND Bodymass_index < "25" 
+  AND absenteeism_time_in_hours < (
+        SELECT AVG(absenteeism_time_in_hours) 
+        FROM absenteeism_at_work
+      );
+**3.Compensation Calculation (Non-Smokers)**
+SELECT COUNT(*) AS non_smokers
+FROM absenteeism_at_work
+WHERE social_smoker = "0";
+
+**4.Optimized Query**
+SELECT 
+    a.ID,
+    r.Reason, 
+    month_of_absence,
+    Bodymass_index,
+    CASE 
+        WHEN Bodymass_index < 18.5 THEN "Underweight"
+        WHEN Bodymass_index BETWEEN 18.5 AND 25 THEN "Healthy Weight"
+        WHEN Bodymass_index BETWEEN 25 AND 30 THEN "Overweight"
+        WHEN Bodymass_index > 30 THEN "Obese"
+        ELSE "Unknown" 
+    END AS BMI_category,
+    CASE 
+        WHEN month_of_absence IN (12,1,2) THEN 'Winter' 
+        WHEN month_of_absence IN (3,4,5) THEN 'Spring'
+        WHEN month_of_absence IN (6,7,8) THEN 'Summer'
+        WHEN month_of_absence IN (9,10,11) THEN 'Autumn'
+        ELSE 'Unknown'
+    END AS seasons_name,
+    month_of_absence,
+    Day_of_the_week,
+    transportation_expense,
+    education,
+    son,
+    social_drinker,
+    social_smoker,
+    pet,
+    age,
+    Workload_average_day,
+    absenteeism_time_in_hours
+FROM absenteeism_at_work AS a
+LEFT JOIN compensation AS c
+    ON a.id = c.id
+LEFT JOIN reasons AS r
+    ON a.reason_for_absence = r.Number;
+
+
+### Compensation Calculation
+
+Budget = 983,221
+Total working hours in a year = 2080
+Number of non-smokers = 686
+Total working hours of all non-smokers = 686 × 2080 = 1,486,880
+Hourly increase = 983,221 ÷ 1,486,880 = 0.68
+Annual increase per non-smoker = 2080 × 0.68 = 1,414.4.
+
+### Dashboard Preview
+
+capture.png
 
 ## Dashboard Insights  
 - Total employees analyzed: **737**  
