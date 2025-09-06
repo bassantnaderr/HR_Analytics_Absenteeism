@@ -28,6 +28,7 @@ LEFT JOIN reasons AS r
     ON a.reason_for_absence = r.Number;
 ```
 **2. Find the Healthiest Employees for Bonus**
+```sql
 SELECT *
 FROM absenteeism_at_work
 WHERE social_drinker = "0" 
@@ -37,13 +38,16 @@ WHERE social_drinker = "0"
         SELECT AVG(absenteeism_time_in_hours) 
         FROM absenteeism_at_work
       );
-      ```
+  ```
 **3.Compensation Calculation (Non-Smokers)**
+```sql
 SELECT COUNT(*) AS non_smokers
 FROM absenteeism_at_work
 WHERE social_smoker = "0";
+```
 
 **4.Optimized Query**
+```sql
 SELECT 
     a.ID,
     r.Reason, 
@@ -79,7 +83,7 @@ LEFT JOIN compensation AS c
     ON a.id = c.id
 LEFT JOIN reasons AS r
     ON a.reason_for_absence = r.Number;
-
+```
 
 ### Compensation Calculation
 
