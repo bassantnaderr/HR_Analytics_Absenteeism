@@ -95,10 +95,10 @@ LEFT JOIN reasons AS r
 - Annual increase per non-smoker = `1,414.4`
 
 
-### Mockup Preview
+## Mockup Preview
 ![Mockup Preview](dashboard_mockup.PNG)
 
-### Dashboard Preview
+## Dashboard Preview
 
 ![Dashboard Preview](final_dashboard.PNG)
 
