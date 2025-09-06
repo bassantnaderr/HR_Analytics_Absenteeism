@@ -94,14 +94,8 @@ LEFT JOIN reasons AS r
 - Hourly increase = `0.68`
 - Annual increase per non-smoker = `1,414.4`
 
-
-## Mockup Preview
-![Mockup Preview](dashboard_mockup.PNG)
-
 ## Dashboard Preview
-
 ![Dashboard Preview](final_dashboard.PNG)
-
 
 ### Dashboard Insights  
 - Total employees analyzed: **737**  
@@ -109,7 +103,12 @@ LEFT JOIN reasons AS r
 - Average absenteeism per employee: **6.95 hours**  
 - Higher absenteeism in **Winter months** and **early weekdays**  
 - Lifestyle and demographic factors (education, pets, smoking, drinking) strongly influence absenteeism patterns  
-- Insights support HR in workforce planning, wellness initiatives, and absenteeism reduction strategies  
+- Insights support HR in workforce planning, wellness initiatives, and absenteeism reduction strategies
+
+
+## Mockup Preview
+![Mockup Preview](dashboard_mockup.PNG)
+
 
 ### Deliverables  
 - **SQL Queries** – Data preparation and business logic  
