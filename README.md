@@ -94,9 +94,13 @@ Total working hours of all non-smokers = 686 × 2080 = 1,486,880
 Hourly increase = 983,221 ÷ 1,486,880 = 0.68
 Annual increase per non-smoker = 2080 × 0.68 = 1,414.4.
 
+### Mockup Preview
+![Mockup Preview](dashboard_mockup.png)
+
 ### Dashboard Preview
 
-capture.png
+![Dashboard Preview](final_dashboard.png)
+
 
 ### Dashboard Insights  
 - Total employees analyzed: **737**  
